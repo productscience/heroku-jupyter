@@ -8,10 +8,9 @@ try:
     c = get_config()
 
     ### Password protection ###
-    # this should remove password checking entirely.
-    # if os.environ.get('JUPYTER_NOTEBOOK_PASSWORD_DISABLED') != 'DangerZone!':
-    #     passwd = os.environ['JUPYTER_NOTEBOOK_PASSWORD']
-    #     c.NotebookApp.password = IPython.lib.passwd(passwd)
+    if os.environ.get('JUPYTER_NOTEBOOK_PASSWORD_DISABLED') != 'DangerZone!':
+        passwd = os.environ['JUPYTER_NOTEBOOK_PASSWORD']
+        c.NotebookApp.password = IPython.lib.passwd(passwd)
 
     ### PostresContentsManager ###
     database_url = os.getenv('DATABASE_URL', None)
